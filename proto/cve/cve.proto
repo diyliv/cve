@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package cve;
+option go_package="./cvepb";
+
+
+service CveService {
+    rpc FindVulnerabilities(FindVulnerabilitiesReq) returns (FindVulnerabilitiesResp){};
+}
+
+message FindVulnerabilitiesReq {
+
+}
+
+message FindVulnerabilitiesResp {
+
+}
