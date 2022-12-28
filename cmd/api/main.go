@@ -1,11 +1,9 @@
 package main
 
 import (
-	"github.com/diyliv/cve/config"
-	"github.com/diyliv/cve/pkg/storage/postgres"
+	"github.com/diyliv/cve/pkg/parser"
 )
 
 func main() {
-	cfg := config.ReadConfig()
-	postgres.ConnectToPostgres(cfg)
+	parser.ParseCveMitre("golang")
 }
