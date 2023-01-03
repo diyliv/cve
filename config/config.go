@@ -1,9 +1,14 @@
 package config
 
-import "github.com/spf13/viper"
+import (
+	"time"
+
+	"github.com/spf13/viper"
+)
 
 type Config struct {
-	Postgres Postgres
+	Postgres   Postgres
+	GrpcServer GrpcServer
 }
 
 type Postgres struct {
@@ -14,6 +19,16 @@ type Postgres struct {
 	ConnMaxLifeTime int
 	MaxOpenConn     int
 	MaxIdleConn     int
+}
+
+type GrpcServer struct {
+	Host              string
+	Port              string
+	Timeout           time.Duration
+	ReadTimeout       time.Duration
+	WriteTimeout      time.Duration
+	MaxConnectionIdle time.Duration
+	MaxConnectionAge  time.Duration
 }
 
 func ReadConfig() *Config {
