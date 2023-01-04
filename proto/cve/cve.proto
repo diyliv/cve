@@ -5,13 +5,42 @@ option go_package="./cvepb";
 
 
 service CveService {
+    rpc Register(RegisterReq) returns (RegisterResp){};
+    rpc Login(LoginReq) returns (LoginResp){};
     rpc FindVulnerabilities(FindVulnerabilitiesReq) returns (FindVulnerabilitiesResp){};
 }
 
-message FindVulnerabilitiesReq {
+message Creds {
+    string login = 1;
+    string password = 2;
+}
 
+message Cve {
+    string name = 1;
+    string link = 2;
+    string description = 3;
+}
+
+message RegisterReq {
+    Creds userCreds = 1;
+}
+
+message RegisterResp {
+    string status = 1;
+}
+
+message LoginReq {
+    Creds userCreds = 1;
+}
+
+message LoginResp {
+    string status = 1;
+}
+
+message FindVulnerabilitiesReq {
+    string search = 1;
 }
 
 message FindVulnerabilitiesResp {
-
+    Cve result = 1;
 }
