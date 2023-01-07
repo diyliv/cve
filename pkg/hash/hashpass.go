@@ -17,7 +17,7 @@ func HashPass(pass []byte) (string, error) {
 
 func ComparePass(hashedPass string, plainPass []byte) bool {
 	if err := bcrypt.CompareHashAndPassword([]byte(hashedPass), plainPass); err != nil {
-		log.Printf("Error while comparing password: %v\n", err)
+		log.Printf("Error while comparing passwords: %v\n", err)
 		return false
 	}
 
