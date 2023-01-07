@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package cve;
-option go_package="./cvepb";
+option go_package="./cvepb;";
 
 
 service CveService {
