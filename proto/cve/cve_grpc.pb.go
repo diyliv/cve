@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.12.4
-// source: proto/cve/cve.proto
+// source: cve.proto
 
 package cvepb
 
@@ -63,16 +63,15 @@ func (c *cveServiceClient) FindVulnerabilities(ctx context.Context, in *FindVuln
 }
 
 // CveServiceServer is the server API for CveService service.
-// All implementations must embed UnimplementedCveServiceServer
+// All implementations should embed UnimplementedCveServiceServer
 // for forward compatibility
 type CveServiceServer interface {
 	Register(context.Context, *RegisterReq) (*RegisterResp, error)
 	Login(context.Context, *LoginReq) (*LoginResp, error)
 	FindVulnerabilities(context.Context, *FindVulnerabilitiesReq) (*FindVulnerabilitiesResp, error)
-	mustEmbedUnimplementedCveServiceServer()
 }
 
-// UnimplementedCveServiceServer must be embedded to have forward compatible implementations.
+// UnimplementedCveServiceServer should be embedded to have forward compatible implementations.
 type UnimplementedCveServiceServer struct {
 }
 
@@ -85,7 +84,6 @@ func (UnimplementedCveServiceServer) Login(context.Context, *LoginReq) (*LoginRe
 func (UnimplementedCveServiceServer) FindVulnerabilities(context.Context, *FindVulnerabilitiesReq) (*FindVulnerabilitiesResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FindVulnerabilities not implemented")
 }
-func (UnimplementedCveServiceServer) mustEmbedUnimplementedCveServiceServer() {}
 
 // UnsafeCveServiceServer may be embedded to opt out of forward compatibility for this service.
 // Use of this interface is not recommended, as added methods to CveServiceServer will
@@ -173,5 +171,5 @@ var CveService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/cve/cve.proto",
+	Metadata: "cve.proto",
 }
