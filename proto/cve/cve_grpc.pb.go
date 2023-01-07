@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.12.4
-// source: cve.proto
+// source: proto/cve/cve.proto
 
 package cvepb
 
@@ -171,5 +171,5 @@ var CveService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "cve.proto",
+	Metadata: "proto/cve/cve.proto",
 }

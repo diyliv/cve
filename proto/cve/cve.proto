@@ -42,5 +42,5 @@ message FindVulnerabilitiesReq {
 }
 
 message FindVulnerabilitiesResp {
-    Cve result = 1;
+    repeated Cve result = 1;
 }
