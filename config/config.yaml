@@ -6,7 +6,7 @@ Postgres:
  ConnMaxLifeTime: 3
  MaxOpenConn: 10
  MaxIdleConn: 10
-Server:
+GrpcServer:
  Host: localhost
  Port: :50051
  Timeout: 15
