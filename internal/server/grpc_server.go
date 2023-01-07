@@ -55,7 +55,7 @@ func (s *server) StartgRPC() {
 			MaxConnectionAge:  s.cfg.GrpcServer.MaxConnectionAge * time.Minute,
 			Time:              s.cfg.GrpcServer.Timeout * time.Minute,
 		}),
-		grpc.ChainUnaryInterceptor(interceptors.Logger),
+		grpc.ChainUnaryInterceptor(interceptors.Logger, interceptors.CheckToken),
 	}
 	server := grpc.NewServer(opts...)
 	cvepb.RegisterCveServiceServer(server, service)
