@@ -5,12 +5,13 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/diyliv/cve/config"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/status"
+
+	"github.com/diyliv/cve/config"
 )
 
 type interceptor struct {
