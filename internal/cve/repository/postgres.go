@@ -4,9 +4,10 @@ import (
 	"context"
 	"database/sql"
 
+	"go.uber.org/zap"
+
 	"github.com/diyliv/cve/internal/models"
 	"github.com/diyliv/cve/pkg/errs"
-	"go.uber.org/zap"
 )
 
 type postgresRepository struct {
