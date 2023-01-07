@@ -21,6 +21,6 @@ func (cv *cveUC) Register(ctx context.Context, creds models.Creds) error {
 	return cv.postgresRepo.Register(ctx, creds)
 }
 
-func (cv *cveUC) Login(ctx context.Context, creds models.Creds) (string, error) {
-	return cv.postgresRepo.Login(ctx, creds)
+func (cv *cveUC) Login(ctx context.Context, login string) (string, error) {
+	return cv.postgresRepo.Login(ctx, login)
 }

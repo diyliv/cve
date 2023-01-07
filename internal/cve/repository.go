@@ -8,5 +8,5 @@ import (
 
 type PostgresRepository interface {
 	Register(ctx context.Context, creds models.Creds) error
-	Login(ctx context.Context, creds models.Creds) (string, error)
+	Login(ctx context.Context, login string) (string, error)
 }
